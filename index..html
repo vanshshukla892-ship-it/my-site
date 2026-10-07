@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vansh Shukla</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;500&display=swap">
+<style>
+/* ===== Themes: each page has its own colours ===== */
+body.t-home{--bg:#060c1e;--surface:#0d1833;--line:#1f3158;--head:#9fd4ff;--accent:#5eead4;--text:#c9d8ee}
+body.t-content{--bg:#0c0922;--surface:#171236;--line:#2e2760;--head:#c4b5fd;--accent:#f0abfc;--text:#d9d4f0}
+body.t-career{--bg:#150e05;--surface:#221609;--line:#4a3315;--head:#fcd34d;--accent:#fb923c;--text:#eddfc8}
+body.t-contact{--bg:#04150f;--surface:#0a2419;--line:#17492f;--head:#86efac;--accent:#67e8f9;--text:#cde8d8}
+:root{--r:18px;--gap:22px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg);color:var(--text);font:400 1.05rem/1.7 Manrope,system-ui,sans-serif;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse 60% 40% at 85% 0,color-mix(in srgb,var(--head) 16%,transparent),transparent),radial-gradient(ellipse 50% 40% at 0 100%,color-mix(in srgb,var(--accent) 12%,transparent),transparent),linear-gradient(color-mix(in srgb,var(--head) 5%,transparent) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,color-mix(in srgb,var(--head) 5%,transparent) 1px,transparent 1px) 0 0/48px 48px}
+.bgart{position:fixed;right:-6%;bottom:-4%;width:min(820px,95vw);z-index:-1;opacity:.07;pointer-events:none}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;color:var(--head);line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* ===== Navbar & logo ===== */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:42px;height:42px;flex:none}
+.logo b{display:block;font:800 1.1rem Sora,sans-serif;color:var(--head);line-height:1.1}
+.logo small{font-size:.72rem;color:var(--accent);letter-spacing:.05em}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+nav ul a{display:block;padding:8px 16px;border-radius:999px;font-size:.95rem;border:1px solid transparent;transition:.2s}
+nav ul a:hover{color:var(--accent);border-color:var(--line)}
+nav ul a.on{background:var(--head);color:var(--bg);font-weight:500}
+
+/* ===== Hero ===== */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:64px 0 72px}
+.hero.sm{padding:48px 0 56px}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800}
+.hero.sm h1{font-size:clamp(2rem,4.6vw,3.1rem)}
+.hero p{max-width:52ch;margin:20px 0 28px}
+.pill{display:inline-block;margin-bottom:16px;padding:4px 14px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-size:.8rem;letter-spacing:.06em}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font:500 1rem Manrope,sans-serif;border:1px solid var(--head);color:var(--head);background:transparent;cursor:pointer;transition:.2s}
+.btn.main{background:var(--head);color:var(--bg);box-shadow:0 0 26px color-mix(in srgb,var(--head) 35%,transparent)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.main:hover{background:var(--accent);color:var(--bg)}
+.art{background:color-mix(in srgb,var(--surface) 70%,transparent);border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:0 0 70px color-mix(in srgb,var(--accent) 14%,transparent)}
+.art svg,.bgart svg{display:block;width:100%;height:auto}
+.s{fill:none;stroke:var(--head);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.t{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.fl{fill:var(--surface)}
+.dot{fill:var(--accent)}
+.glow{fill:var(--accent);opacity:.25}
+
+/* ===== Sections, cards ===== */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:14px}
+.lead{max-width:62ch;margin:0}
+.grid{display:grid;gap:var(--gap);margin-top:30px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:.25s;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--head),var(--accent))}
+.card:hover{border-color:var(--head);transform:translateY(-4px)}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{margin:0;font-size:.97rem}
+a.card{display:block}
+.card .arrow{display:inline-block;margin-top:14px;color:var(--accent);font-weight:500}
+.stat b{display:block;font:800 1.6rem Sora,sans-serif;color:var(--head)}
+.stat span{font-size:.92rem}
+.field{padding:6px 0 6px 18px;border-left:3px solid var(--head)}
+.field:nth-child(even){border-color:var(--accent)}
+.field h3{font-size:1.1rem;margin-bottom:4px}.field p{margin:0;font-size:.96rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:.82rem;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:999px;padding:2px 12px}
+.num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;margin-bottom:14px;background:color-mix(in srgb,var(--head) 16%,transparent);color:var(--head);font:800 1rem Sora,sans-serif}
+
+/* ===== Roadmaps ===== */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 26px}
+.tabs button{display:flex;align-items:center;gap:8px;font:500 .95rem Manrope,sans-serif;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 20px;cursor:pointer;transition:.2s}
+.tabs button i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.tabs button:hover{border-color:var(--c)}
+.tabs button[aria-selected=true]{background:var(--c);color:#06070d;border-color:var(--c)}
+.tabs button[aria-selected=true] i{background:#06070d}
+.rm-head{display:flex;align-items:center;gap:18px;padding:22px;margin-bottom:34px;border:1px solid var(--c);border-radius:var(--r);background:linear-gradient(120deg,color-mix(in srgb,var(--c) 18%,var(--surface)),var(--surface))}
+.rm-head svg{width:64px;height:64px;flex:none;padding:14px;border-radius:18px;background:var(--c);stroke:#06070d;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rm-head h3{color:var(--c);font-size:1.4rem}.rm-head p{margin:2px 0 0;font-size:.95rem}
+.rm{position:relative;display:grid;gap:26px}
+.rm::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;margin-left:-2px;border-radius:4px;background:linear-gradient(var(--c),transparent)}
+.step{display:grid;grid-template-columns:1fr 56px 1fr;align-items:center}
+.step .node{grid-column:2;grid-row:1;z-index:1;display:grid;place-items:center;width:48px;height:48px;margin:0 auto;border-radius:50%;background:var(--bg);border:3px solid var(--c);color:var(--c);font:800 1.05rem Sora,sans-serif;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 18%,transparent),0 0 24px color-mix(in srgb,var(--c) 45%,transparent)}
+.step .box{grid-column:1;grid-row:1;position:relative;padding:18px 20px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);transition:.25s}
+.step:nth-child(even) .box{grid-column:3}
+.step .box:hover{transform:translateY(-3px);border-color:var(--c)}
+.step .box b{display:block;margin-bottom:4px;font:700 1.05rem Sora,sans-serif;color:var(--c)}
+.step .box span{font-size:.95rem}
+.step .box em{display:inline-block;margin-top:10px;padding:2px 12px;border-radius:999px;font-style:normal;font-size:.78rem;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c)}
+.end{display:grid;place-items:center;margin-top:8px}
+.end span{padding:10px 26px;border-radius:999px;background:var(--c);color:#06070d;font:700 .95rem Sora,sans-serif;z-index:1}
+
+/* ===== Contact form ===== */
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:.92rem;color:var(--head)}
+input,textarea{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:400 1rem Manrope,sans-serif}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+textarea{min-height:140px;resize:vertical}
+.info{display:flex;gap:16px;align-items:center}
+.info i{display:grid;place-items:center;width:46px;height:46px;flex:none;border-radius:14px;background:color-mix(in srgb,var(--accent) 16%,transparent);font-style:normal;font-size:1.2rem}
+.info p{word-break:break-word}
+
+footer{border-top:1px solid var(--line);padding:44px 0 52px;text-align:center;background:color-mix(in srgb,var(--surface) 55%,transparent)}
+footer ul{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0 0 18px;padding:0}
+footer a:hover{color:var(--accent)}
+footer small{opacity:.65}
+
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){
+ .hero{grid-template-columns:1fr;padding:44px 0}.g2,.g3,.g4{grid-template-columns:1fr}
+ nav{flex-direction:column;align-items:flex-start;gap:8px}
+ nav ul{width:100%;overflow-x:auto;padding-bottom:4px}nav ul a{white-space:nowrap;padding:7px 14px}
+ .rm::before{left:24px}
+ .step{grid-template-columns:48px 1fr;gap:14px}
+ .step .node{grid-column:1;margin:0}
+ .step .box,.step:nth-child(even) .box{grid-column:2}
+ .rm-head{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.step .box,.btn{transition:none}}
+
+.page{display:none}.page.on{display:block}
+</style>
+</head>
+<body class="t-home">
+<div class="bar"><div class="wrap"><nav>
+<a class="logo" href="#home" aria-label="Vansh Shukla home"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--head)"/><stop offset="1" style="stop-color:var(--accent)"/></linearGradient></defs><path d="M24 3 42 13.5v21L24 45 6 34.5v-21z" style="fill:var(--surface)" stroke="url(#g)" stroke-width="2.5"/><path d="M14 17l6 14 4-9 4 9 6-14" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Vansh Shukla</b><small>FULL STACK · CYBER · IoT</small></span></a>
+<ul><li><a href="#home">Home</a></li><li><a href="#content">Content</a></li><li><a href="#career">Career</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></div>
+<div class="page" id="p-home" data-page="home"><div class="bgart"><svg viewBox="0 0 400 300" role="img" aria-label="Code window with security shield"><circle class="glow" cx="300" cy="200" r="70"/><rect class="fl s" x="30" y="30" width="300" height="200" rx="16"/><path class="s" d="M30 66h300"/><circle class="dot" cx="52" cy="48" r="5"/><circle class="dot" cx="72" cy="48" r="5" opacity=".6"/><circle class="dot" cx="92" cy="48" r="5" opacity=".3"/><path class="t" d="M55 100h90M55 128h140M55 156h70M55 184h110"/><path class="s" d="M160 100h60M215 156h70"/><path class="fl t" d="M300 130l55 20v45c0 35-25 55-55 65-30-10-55-30-55-65v-45z"/><path class="s" d="M278 195l17 17 30-34"/></svg></div><main class="wrap">
+<header class="hero"><div><span class="pill">FULL STACK JAVA DEVELOPER</span><h1>Building the secure and smart future of computing.</h1><p>I am a full stack Java developer. I also work in Python. I like cyber security, web development and IoT. I build things that are safe, fast and useful.</p><div class="btns"><a class="btn main" href="#content">Explore content</a><a class="btn" href="#contact">Contact me</a></div></div><div class="art"><svg viewBox="0 0 400 300" role="img" aria-label="Code window with security shield"><circle class="glow" cx="300" cy="200" r="70"/><rect class="fl s" x="30" y="30" width="300" height="200" rx="16"/><path class="s" d="M30 66h300"/><circle class="dot" cx="52" cy="48" r="5"/><circle class="dot" cx="72" cy="48" r="5" opacity=".6"/><circle class="dot" cx="92" cy="48" r="5" opacity=".3"/><path class="t" d="M55 100h90M55 128h140M55 156h70M55 184h110"/><path class="s" d="M160 100h60M215 156h70"/><path class="fl t" d="M300 130l55 20v45c0 35-25 55-55 65-30-10-55-30-55-65v-45z"/><path class="s" d="M278 195l17 17 30-34"/></svg></div></header><section><h2>Who is Vansh Shukla?</h2><p class="lead">I am a final-year B.Tech student in Computer Science and Engineering with IoT specialization. I study at Raj Kumar Goel Institute of Technology, Ghaziabad. I am a full stack Java developer and I also code in Python. My goal is to become a strong software engineer.</p><div class="grid g4"><div class="card stat"><b>Final Year</b><span>B.Tech CSE (IoT)</span></div><div class="card stat"><b>Java</b><span>Full stack developer</span></div><div class="card stat"><b>Python</b><span>Scripts, AI and backend</span></div><div class="card stat"><b>ESP32-S3</b><span>Embedded and radar work</span></div></div></section><section><h2>Fields I explore</h2><div class="grid g3"><div class="field"><h3>Cyber Security</h3><p>Learning how to find weak points and protect systems.</p></div><div class="field"><h3>Software Engineering</h3><p>Writing clean, simple and working code.</p></div><div class="field"><h3>Web Development</h3><p>Making fast and good-looking websites.</p></div><div class="field"><h3>IoT and Embedded</h3><p>Connecting sensors, chips and the real world.</p></div><div class="field"><h3>Artificial Intelligence</h3><p>Using smart tools to solve real problems.</p></div><div class="field"><h3>Cloud Computing</h3><p>Running apps and data on online systems.</p></div></div></section><section><h2>Explore the site</h2><div class="grid g3"><a class="card" href="#content"><h3>Content</h3><p>Projects and learning roadmaps.</p><span class="arrow">Open &rarr;</span></a><a class="card" href="#career"><h3>Career</h3><p>My goals, target roles and skills.</p><span class="arrow">Open &rarr;</span></a><a class="card" href="#contact"><h3>Contact</h3><p>Send me a message or email.</p><span class="arrow">Open &rarr;</span></a></div></section>
+</main></div>
+<div class="page" id="p-content" data-page="content"><div class="bgart"><svg viewBox="0 0 400 300" role="img" aria-label="Learning roadmap path"><circle class="glow" cx="330" cy="70" r="60"/><path class="s" d="M40 250C130 250 90 160 190 160S250 80 340 70" stroke-dasharray="2 12"/><circle class="fl t" cx="40" cy="250" r="16"/><circle class="fl t" cx="190" cy="160" r="16"/><circle class="fl t" cx="340" cy="70" r="16"/><path class="s" d="M335 66l5 5 9-10"/><rect class="fl s" x="70" y="40" width="110" height="64" rx="14"/><path class="t" d="M88 62h60M88 80h40"/><rect class="fl s" x="240" y="190" width="120" height="64" rx="14"/><path class="t" d="M258 212h64M258 230h44"/><path class="s" d="M40 250v-10M190 160v-10"/></svg></div><main class="wrap">
+<header class="hero sm"><div><span class="pill">LEARN · BUILD · REPEAT</span><h1>Projects and roadmaps</h1><p>See what I have built. Follow the step-by-step paths I use to learn new skills.</p><div class="btns"><a class="btn main" href="#projects">Projects</a><a class="btn" href="#roadmaps">Roadmaps</a></div></div><div class="art"><svg viewBox="0 0 400 300" role="img" aria-label="Learning roadmap path"><circle class="glow" cx="330" cy="70" r="60"/><path class="s" d="M40 250C130 250 90 160 190 160S250 80 340 70" stroke-dasharray="2 12"/><circle class="fl t" cx="40" cy="250" r="16"/><circle class="fl t" cx="190" cy="160" r="16"/><circle class="fl t" cx="340" cy="70" r="16"/><path class="s" d="M335 66l5 5 9-10"/><rect class="fl s" x="70" y="40" width="110" height="64" rx="14"/><path class="t" d="M88 62h60M88 80h40"/><rect class="fl s" x="240" y="190" width="120" height="64" rx="14"/><path class="t" d="M258 212h64M258 230h44"/><path class="s" d="M40 250v-10M190 160v-10"/></svg></div></header><section id="projects"><h2>Projects</h2><div class="grid g2"><div class="card"><h3>Health Monitoring System</h3><p>A system that reads health data from sensors and shows it in a simple way.</p><div class="tags"><span>IoT</span><span>Sensors</span><span>ESP32</span></div></div><div class="card"><h3>Kisan Mitra AI</h3><p>An AI helper made for farmers. It gives easy and useful guidance.</p><div class="tags"><span>AI</span><span>Python</span><span>Farming</span></div></div></div></section><section id="roadmaps"><h2>Roadmaps</h2><p class="lead">Pick a path. Follow the steps from top to bottom.</p><div class="tabs" role="tablist" id="tabs"></div><div id="road"></div></section>
+</main></div>
+<div class="page" id="p-career" data-page="career"><div class="bgart"><svg viewBox="0 0 400 300" role="img" aria-label="Growth chart with rising arrow"><circle class="glow" cx="90" cy="90" r="60"/><path class="s" d="M30 260h340"/><rect class="fl s" x="60" y="190" width="48" height="70" rx="8"/><rect class="fl s" x="130" y="150" width="48" height="110" rx="8"/><rect class="fl s" x="200" y="110" width="48" height="150" rx="8"/><rect class="fl t" x="270" y="70" width="48" height="190" rx="8"/><path class="t" d="M50 170L140 120l60-30 120-50"/><path class="t" d="M290 38l32 2-10 30"/><path class="dot" d="M334 30l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z"/></svg></div><main class="wrap">
+<header class="hero sm"><div><span class="pill">MY CAREER PATH</span><h1>Where I am going</h1><p>I want to grow as a software engineer. I will keep learning and keep building real projects.</p><div class="btns"><a class="btn main" href="#contact">Hire me</a><a class="btn" href="#roadmaps">My roadmaps</a></div></div><div class="art"><svg viewBox="0 0 400 300" role="img" aria-label="Growth chart with rising arrow"><circle class="glow" cx="90" cy="90" r="60"/><path class="s" d="M30 260h340"/><rect class="fl s" x="60" y="190" width="48" height="70" rx="8"/><rect class="fl s" x="130" y="150" width="48" height="110" rx="8"/><rect class="fl s" x="200" y="110" width="48" height="150" rx="8"/><rect class="fl t" x="270" y="70" width="48" height="190" rx="8"/><path class="t" d="M50 170L140 120l60-30 120-50"/><path class="t" d="M290 38l32 2-10 30"/><path class="dot" d="M334 30l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z"/></svg></div></header><section><h2>Target roles</h2><div class="grid g3"><div class="card"><h3>Java Full Stack Developer</h3><p>Build web apps with Java, Spring Boot and React.</p><div class="tags"><span>Java</span><span>Spring</span><span>React</span><span>MySQL</span></div></div><div class="card"><h3>Backend Developer</h3><p>Design APIs and databases that scale.</p><div class="tags"><span>REST</span><span>SQL</span><span>Python</span></div></div><div class="card"><h3>Cyber Security Analyst</h3><p>Find risks and keep systems safe.</p><div class="tags"><span>OWASP</span><span>Linux</span><span>Networking</span></div></div><div class="card"><h3>Cloud Engineer</h3><p>Deploy and run apps on the cloud.</p><div class="tags"><span>AWS</span><span>Docker</span><span>CI/CD</span></div></div><div class="card"><h3>IoT Engineer</h3><p>Build smart devices with sensors and chips.</p><div class="tags"><span>ESP32</span><span>C/C++</span><span>MQTT</span></div></div></div></section><section><h2>My timeline</h2><div class="grid g3"><div class="card"><span class="num">1</span><h3>Now</h3><p>Final year B.Tech. Build projects. Practice coding. Prepare for placements.</p></div><div class="card"><span class="num">2</span><h3>Next</h3><p>Join a company as a software engineer. Learn from a strong team.</p></div><div class="card"><span class="num">3</span><h3>Future</h3><p>Grow into a senior engineer. Work on secure and smart systems.</p></div></div></section><section><h2>Skills</h2><div class="tags" style="gap:12px"><span style="font-size:.95rem;padding:6px 18px">Java</span><span style="font-size:.95rem;padding:6px 18px">Python</span><span style="font-size:.95rem;padding:6px 18px">Spring Boot</span><span style="font-size:.95rem;padding:6px 18px">HTML</span><span style="font-size:.95rem;padding:6px 18px">CSS</span><span style="font-size:.95rem;padding:6px 18px">JavaScript</span><span style="font-size:.95rem;padding:6px 18px">MySQL</span><span style="font-size:.95rem;padding:6px 18px">REST APIs</span><span style="font-size:.95rem;padding:6px 18px">ESP32-S3</span><span style="font-size:.95rem;padding:6px 18px">Arduino</span><span style="font-size:.95rem;padding:6px 18px">FMCW Radar</span><span style="font-size:.95rem;padding:6px 18px">Sensor Fusion</span></div></section>
+</main></div>
+<div class="page" id="p-contact" data-page="contact"><div class="bgart"><svg viewBox="0 0 400 300" role="img" aria-label="Email envelope with signal"><circle class="glow" cx="200" cy="170" r="90"/><rect class="fl s" x="60" y="100" width="280" height="170" rx="18"/><path class="s" d="M62 112l138 92 138-92"/><path class="t" d="M95 250h60M245 250h60"/><path class="t" d="M300 70a40 40 0 0160 0M286 50a62 62 0 0188 0"/><circle class="dot" cx="330" cy="86" r="6"/></svg></div><main class="wrap">
+<header class="hero sm"><div><span class="pill">LET US TALK</span><h1>Contact me</h1><p>I am open to internships, jobs and project ideas. Send a message. I will reply soon.</p><div class="btns"><a class="btn main" href="mailto:VanshShukla892@gmail.com">Email me</a></div></div><div class="art"><svg viewBox="0 0 400 300" role="img" aria-label="Email envelope with signal"><circle class="glow" cx="200" cy="170" r="90"/><rect class="fl s" x="60" y="100" width="280" height="170" rx="18"/><path class="s" d="M62 112l138 92 138-92"/><path class="t" d="M95 250h60M245 250h60"/><path class="t" d="M300 70a40 40 0 0160 0M286 50a62 62 0 0188 0"/><circle class="dot" cx="330" cy="86" r="6"/></svg></div></header><section><div class="grid g2" style="margin-top:0;align-items:start">
+<div class="grid" style="margin-top:0">
+<div class="card info"><i>✉</i><div><h3>Email</h3><p><a href="mailto:VanshShukla892@gmail.com">VanshShukla892@gmail.com</a></p></div></div>
+<div class="card info"><i>🎓</i><div><h3>Education</h3><p>B.Tech CSE (IoT), Raj Kumar Goel Institute of Technology</p></div></div>
+<div class="card info"><i>📍</i><div><h3>Location</h3><p>Ghaziabad, India</p></div></div>
+</div>
+<form class="card" action="mailto:VanshShukla892@gmail.com" method="post" enctype="text/plain">
+<label>Your name<input type="text" name="name" required></label>
+<label>Your email<input type="email" name="email" required></label>
+<label>Message<textarea name="message" required></textarea></label>
+<button class="btn main" type="submit">Send message</button>
+</form></div></section>
+</main></div>
+
+<footer><div class="wrap"><ul><li><a href="#home">Home</a></li><li><a href="#content">Content</a></li><li><a href="#career">Career</a></li><li><a href="#contact">Contact</a></li></ul><small>&copy; 2026 Vansh Shukla &middot; VanshShukla892@gmail.com</small></div></footer>
+<script>
+const ic={
+code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+cloud:'<path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/>',
+brain:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+wifi:'<path d="M2 9a15 15 0 0120 0M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0"/><circle cx="12" cy="19.5" r="1"/>'};
+const R=[
+{n:"Full Stack",c:"#7dd3fc",i:"code",d:"Java, Spring Boot, databases and React.",s:[["HTML, CSS, JavaScript","Learn the web basics. Build responsive pages.","Month 1"],["Core Java","OOP, collections, exceptions and streams.","Month 2-3"],["Spring Boot","Build REST APIs with services and security.","Month 4"],["Databases","MySQL, joins and indexes. Add JPA or Hibernate.","Month 5"],["React","Learn React. Connect it to your own APIs.","Month 6"],["Git and Deploy","Use Git and Docker basics. Put your app online.","Month 7"]]},
+{n:"Cyber Security",c:"#f87171",i:"shield",d:"Find weak points. Protect systems.",s:[["Networking basics","TCP/IP, DNS, HTTP and ports.","Month 1"],["Linux and terminal","Be fast on the command line.","Month 2"],["Security basics","Encryption, hashing and authentication.","Month 3"],["Web security","OWASP Top 10: XSS, SQL injection and more.","Month 4"],["Practice labs","TryHackMe and Hack The Box in a safe lab.","Month 5-6"],["Certification","Aim for Security+ or CEH.","Month 7"]]},
+{n:"Cloud Computing",c:"#a78bfa",i:"cloud",d:"Run apps and data on online systems.",s:[["Cloud basics","IaaS, PaaS, SaaS and regions.","Month 1"],["Pick one provider","Start with AWS, Azure or Google Cloud.","Month 2"],["Core services","Compute, storage, network and IAM.","Month 3"],["Containers","Docker first. Then Kubernetes basics.","Month 4"],["Infrastructure as code","Terraform and CI/CD pipelines.","Month 5"],["Certification","AWS Cloud Practitioner, then Associate.","Month 6"]]},
+{n:"AI and ML",c:"#fbbf24",i:"brain",d:"Teach computers to learn from data.",s:[["Python and maths","NumPy, Pandas and basic statistics.","Month 1"],["Machine learning","Regression, classification, scikit-learn.","Month 2-3"],["Deep learning","Neural networks with PyTorch.","Month 4"],["Real project","Build one app that solves a real problem.","Month 5"],["Deploy the model","Serve it through an API and a simple UI.","Month 6"]]},
+{n:"IoT and Embedded",c:"#4ade80",i:"wifi",d:"Connect sensors, chips and the real world.",s:[["C and C++","Pointers, memory and bit operations.","Month 1"],["Microcontrollers","Arduino, then ESP32: GPIO, I2C, SPI.","Month 2"],["Sensors","Read, filter and fuse sensor data.","Month 3"],["Connectivity","WiFi, Bluetooth and MQTT.","Month 4"],["Cloud dashboard","Send data online. Show it live.","Month 5"]]}];
+const tabs=document.getElementById('tabs'),out=document.getElementById('road');
+function show(k){
+ const r=R[k];
+ out.style.setProperty('--c',r.c);
+ out.innerHTML='<div class="rm-head"><svg viewBox="0 0 24 24">'+ic[r.i]+'</svg><div><h3>'+r.n+' Roadmap</h3><p>'+r.d+' '+r.s.length+' steps.</p></div></div><div class="rm">'+
+ r.s.map((s,j)=>'<div class="step"><div class="node">'+(j+1)+'</div><div class="box"><b>'+s[0]+'</b><span>'+s[1]+'</span><br><em>'+s[2]+'</em></div></div>').join('')+
+ '</div><div class="end"><span>Goal reached</span></div>';
+ [...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',j===k));
+}
+R.forEach((r,k)=>{const b=document.createElement('button');b.style.setProperty('--c',r.c);b.setAttribute('role','tab');b.innerHTML='<i></i>'+r.n;b.onclick=()=>show(k);tabs.appendChild(b)});
+show(0);
+
+
+const PG=["home","content","career","contact"];
+function go(){
+ const h=location.hash.slice(1)||"home";let page=h,target=null;
+ if(!PG.includes(h)){target=document.getElementById(h);const p=target&&target.closest(".page");page=p?p.dataset.page:(document.querySelector(".page.on")||{dataset:{page:"home"}}).dataset.page}
+ PG.forEach(n=>document.getElementById("p-"+n).classList.toggle("on",n===page));
+ document.body.className="t-"+page;
+ document.querySelectorAll(".bar nav ul a").forEach(a=>{const on=a.getAttribute("href")==="#"+page;a.classList.toggle("on",on);on?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+ document.title=page[0].toUpperCase()+page.slice(1)+" | Vansh Shukla";
+ if(target)target.scrollIntoView({behavior:"smooth"});else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",go);go();
+</script>
+</body>
+</html>
